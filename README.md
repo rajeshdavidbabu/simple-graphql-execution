@@ -1,4 +1,4 @@
-# GraphQL.js
+# GraphQL
 
 Node script dealing with simple graphQL execution `GraphQLSchema` with `graphql-js`.
 
