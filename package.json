@@ -1,0 +1,14 @@
+{
+  "name": "simple-graphql-execution",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:debug": "NODE_OPTIONS='--inspect' node src/index.js"
+  },
+  "author": "Rajesh Babu",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^0.11.7"
+  }
+}
