@@ -56,26 +56,27 @@ const PersonType = new GraphQLObjectType({
   }
 });
 
-// GraphQL Schema Representation
-const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'Query',
-    fields: {
-      person: {
-        type: PersonType,
-        args: {
-          id: { type: GraphQLID }
-        },
-        resolve: (root, args, context, info) => {
-          console.log(`Resolver called: user`)
-          return fetchPersonById(args.id)
-        }
+const QueryType = new GraphQLObjectType({
+  name: 'Query',
+  fields: {
+    person: {
+      type: PersonType,
+      args: {
+        id: { type: GraphQLID }
+      },
+      resolve: (root, args, context, info) => {
+        return fetchPersonById(args.id)
       }
     }
-  })
+  }
 });
 
-// Define the query
+// GraphQL Schema Representation
+const schema = new GraphQLSchema({
+  query: QueryType
+});
+
+// Query sent from the client
 const queryString = `
 {
   person(id: "123") {
